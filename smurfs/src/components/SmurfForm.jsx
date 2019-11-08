@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 import { connect } from 'react-redux';
 
 import { addSmurf } from '../actions/actions';
@@ -7,7 +7,7 @@ import { addSmurf } from '../actions/actions';
 
 const SmurfForm = props => {
     // console.log('Smurf Form', props.addSmurf)
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const [smurf, setSmurf] = useState({ name: '', age: '', height: ''})
 
     const handleChanges = event => {
@@ -17,12 +17,12 @@ const SmurfForm = props => {
     const handleSubmit = event => {
         console.log('handleSubmit SMURF', smurf)
         event.preventDefault()
-        dispatch(props.addSmurf(smurf))
+        props.addSmurf(smurf)
     }
 
     return (
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>Add New Smurf!</label>
                 <br/>
                 <input 
@@ -46,7 +46,7 @@ const SmurfForm = props => {
                 value={smurf.height}
                 onChange={handleChanges}
                 />
-                <button type='submit' onSubmit={handleSubmit}>Submit Smurf</button>
+                <button type='submit'>Submit Smurf</button>
             </form>
         </div>
     )

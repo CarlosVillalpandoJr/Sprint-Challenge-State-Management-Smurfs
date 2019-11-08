@@ -46,6 +46,7 @@ function reducer(state = initialState, action) {
         case CREATE_SMURF_SUCCESS:
             return {
                 ...state,
+                isFetching: false,
                 smurfData: [...state, action.payload],
                 error: null
             }
