@@ -1,11 +1,23 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
+
+import { addSmurf } from '../actions/actions';
 
 
 const SmurfForm = props => {
+    // console.log('Smurf Form', props.addSmurf)
+    const dispatch = useDispatch();
     const [smurf, setSmurf] = useState({ name: '', age: '', height: ''})
 
     const handleChanges = event => {
         setSmurf({ ...smurf, [event.target.name]: event.target.value })
+    }
+
+    const handleSubmit = event => {
+        console.log('handleSubmit SMURF', smurf)
+        event.preventDefault()
+        dispatch(props.addSmurf(smurf))
     }
 
     return (
@@ -34,9 +46,17 @@ const SmurfForm = props => {
                 value={smurf.height}
                 onChange={handleChanges}
                 />
+                <button type='submit' onSubmit={handleSubmit}>Submit Smurf</button>
             </form>
         </div>
     )
 }
 
-export default SmurfForm;
+
+export default connect(state => {
+    return {
+    smurfData: state.smurfData,
+    isFetching: state.isFetching,
+    error: state.error
+    }
+}, {addSmurf})(SmurfForm)

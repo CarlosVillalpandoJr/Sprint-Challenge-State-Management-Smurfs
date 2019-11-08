@@ -6,7 +6,7 @@ import SmurfForm from './SmurfForm';
 
 
 const SmurfList = props => {
-    // console.log('SmurfList Props: ', props)
+    console.log('SmurfList Props: ', props)
     return (
         <div>
             <h2>Smurf Village</h2>
@@ -16,6 +16,8 @@ const SmurfList = props => {
                 return (
                     <div className='smurf-card' key={smurf.id}>
                         <h4>{smurf.name}</h4>
+                        <p>{smurf.age}</p>
+                        <p>{smurf.height}</p>
                     </div>
                 )
             })}
