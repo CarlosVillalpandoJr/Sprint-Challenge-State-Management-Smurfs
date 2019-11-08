@@ -2,12 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux'
 import { fetchSmurfs } from '../actions/actions'
 
+import SmurfForm from './SmurfForm';
+
 
 const SmurfList = props => {
     // console.log('SmurfList Props: ', props)
     return (
         <div>
             <h2>Smurf Village</h2>
+            <SmurfForm />
             <button onClick={() => props.fetchSmurfs()}>Smurf Village</button>
             {props.smurfData.map(smurf => {
                 return (
