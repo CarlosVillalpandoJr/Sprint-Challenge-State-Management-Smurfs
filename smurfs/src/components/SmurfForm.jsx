@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import { useDispatch } from 'react-redux';
 import { connect } from 'react-redux';
 
 import { addSmurf } from '../actions/actions';
@@ -7,7 +6,6 @@ import { addSmurf } from '../actions/actions';
 
 const SmurfForm = props => {
     // console.log('Smurf Form', props.addSmurf)
-    // const dispatch = useDispatch();
     const [smurf, setSmurf] = useState({ name: '', age: '', height: ''})
 
     const handleChanges = event => {
