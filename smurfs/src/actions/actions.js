@@ -12,8 +12,26 @@ export const CREATE_SMURF_FAILURE = 'CREATE_SMURF_FAILURE'
 
 
 
+
+// // async action creators with explicit return same as below 
+
+// export const fetchSmurfs = () => {
+//     return dispatch => {
+//         dispatch({ type: FETCH_SMURFS_LOADING })
+//         // do some async action and dispatch an error or success action
+//         axios
+//             .get(`http://localhost:3333/smurfs`)
+//             .then(response => dispatch({ type: FETCH_SMURFS_SUCCESS, payload: response.data }))
+//             .catch(error => dispatch({ type: FETCH_SMURFS_FAILURE, payload: error}))
+//     }
+// } 
+
+
+
+// Async action creators
 export const fetchSmurfs = () => dispatch => {
     dispatch({ type: FETCH_SMURFS_LOADING })
+    // do some async action and ispatch an error or success action
     axios
         .get(`http://localhost:3333/smurfs`)
         .then(response => dispatch({ type: FETCH_SMURFS_SUCCESS, payload: response.data}))
